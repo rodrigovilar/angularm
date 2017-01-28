@@ -1,36 +1,38 @@
 import { NgModule, ModuleWithProviders } from "@angular/core";
 import { CommonModule } from "@angular/common";
+
+import { MetaRoutingModule } from './src/routing.module';
+import { PipesModule } from './src/pipes/pipes.module';
+
+
 import { SampleComponent } from "./src/sample.component";
 import { SampleDirective } from "./src/sample.directive";
-import { TitleCase } from "./src/pipes/titlecase.pipe";
 import { AngularmService } from "./src/angularm.service";
+
 
 export * from './src/sample.component';
 export * from './src/sample.directive';
-export * from './src/pipes/titlecase.pipe';
+export * from './src/pipes/pipes.module';
 export * from './src/angularm.service';
 export * from './src/meta/entitytypes.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    MetaRoutingModule
   ],
   declarations: [
     SampleComponent,
-    SampleDirective,
-    TitleCase
+    SampleDirective
+  ],
+  providers: [
+    AngularmService
   ],
   exports: [
     SampleComponent,
     SampleDirective,
-    TitleCase
+    MetaRoutingModule,
+    PipesModule
   ]
 })
-export class AngularmModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: AngularmModule,
-      providers: [AngularmService]
-    };
-  }
-}
+export class AngularmModule {}
