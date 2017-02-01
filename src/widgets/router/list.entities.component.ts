@@ -21,16 +21,12 @@ import { TitleCase } from '../../pipes/titlecase.pipe';
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let entity of entities">
-          <td *ngFor="let property of entity.mountProperties()">{{property.value}}</td>
-          <td> <a href="#" (click)="show(entity)">Show</a></td>
-          <td> <a href="#" (click)="edit(entity)">Edit</a></td>
-          <td> <a href="#" (click)="destroy(entity)">Destroy</a></td>
-        </tr>
+        <div *ngFor="let entity of entities" [mgEntity]="'table_line'" [entity]="entity">
+        </div>
       </tbody>
     </table>
     <a href="#" (click)="create()">New {{entityType.singular | titleCase}}</a>
-    <a href="#" (click)="back()">Back</a> 
+    <a href="#" (click)="back()">Back</a>
   </div>`,
   animations: [slideInDownAnimation],
 })
@@ -72,27 +68,6 @@ export class ListEntitiesComponent extends EntityTypeComponent implements OnInit
   create() {
     this.flash.clearMessage();
     this.router.navigate([this.entityType.plural, 'new']);
-    return false;
-  }
-
-  show(entity: Entity) {
-    this.flash.clearMessage();
-    this.router.navigate([entity.entityType.plural, entity.key]);
-    return false;
-  }
-
-  edit(entity: Entity) {
-    this.flash.clearMessage();
-    this.router.navigate([entity.entityType.plural, entity.key, 'edit']);
-    return false;
-  }
-
-  destroy(entity: Entity) {
-    if (confirm('Are you sure?')) {
-      this.angularm.delete(entity.entityType.singular, entity.key);
-      let entityTypeName = TitleCase.toTitleCase(entity.entityType.singular);
-      this.flash.changeMessage(`${entityTypeName} was successfully destroyed.`);
-    }
     return false;
   }
 }

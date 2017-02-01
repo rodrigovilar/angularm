@@ -1,37 +1,36 @@
-import { NgModule, ModuleWithProviders } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { NgModule } from "@angular/core";
 
-import { MetaRoutingModule } from './src/routing.module';
+import { MetaModule } from './src/meta/meta.module';
 import { PipesModule } from './src/pipes/pipes.module';
 
-
-import { SampleComponent } from "./src/sample.component";
-import { SampleDirective } from "./src/sample.directive";
 import { AngularmService } from "./src/angularm.service";
 
 
-export * from './src/sample.component';
-export * from './src/sample.directive';
 export * from './src/pipes/pipes.module';
-export * from './src/angularm.service';
+export * from './src/meta/meta.module';
 export * from './src/meta/entitytypes.component';
+export * from './src/widgets/simple/entityline';
+export * from './src/angularm.service';
+
+export * from './src/widgets/router/list.entities.component';
+export * from './src/widgets/router/show.entity.component';
+export * from './src/widgets/router/create.entity.component';
+export * from './src/widgets/router/edit.entity.component';
+export * from './src/widgets/router/home.component';
+export * from './src/widgets/router/not-found.component';
+export * from './src/widgets/router/flash.message.component';
+export * from './src/widgets/router/flash.message.service';
 
 @NgModule({
   imports: [
-    CommonModule,
-    MetaRoutingModule
-  ],
-  declarations: [
-    SampleComponent,
-    SampleDirective
+    MetaModule,
+    PipesModule
   ],
   providers: [
-    AngularmService
+    AngularmService,
   ],
   exports: [
-    SampleComponent,
-    SampleDirective,
-    MetaRoutingModule,
+    MetaModule,
     PipesModule
   ]
 })
