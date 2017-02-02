@@ -22,6 +22,8 @@ export * from './src/widgets/simple/flash.message.component';
 export * from './src/widgets/simple/flash.message.service';
 export * from './src/widgets/simple/create.entity.component';
 export * from './src/widgets/simple/formline';
+export * from './src/widgets/simple/edit.entity.form.component';
+export * from './src/widgets/simple/edit.formline';
 
 @NgModule({
   imports: [

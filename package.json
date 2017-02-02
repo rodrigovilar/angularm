@@ -1,6 +1,6 @@
 {
   "name": "angularm",
-  "version": "0.3.29",
+  "version": "0.3.31",
   "scripts": {
     "lint": "tslint src/**/*.ts",
     "test": "tsc && karma start",

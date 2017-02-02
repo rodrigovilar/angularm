@@ -70,7 +70,6 @@ export class AbstractPortDirective implements AfterViewInit, OnChanges, OnDestro
   }
 
   protected createPropertyWidget(property: Property, port: string, mgForm: FormGroup) {
-      console.log('rule', property, port);
       let widgetConnection = this.angularm.getPropertyWidget(property, port);
       let componentRef = this.createComponent(widgetConnection.widget);
       componentRef.instance.property = property;
