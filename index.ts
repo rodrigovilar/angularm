@@ -14,12 +14,13 @@ export * from './src/angularm.service';
 
 export * from './src/widgets/router/list.entities.component';
 export * from './src/widgets/router/show.entity.component';
-export * from './src/widgets/router/create.entity.component';
+export * from './src/widgets/router/new.entity.component';
 export * from './src/widgets/router/edit.entity.component';
 export * from './src/widgets/router/home.component';
 export * from './src/widgets/router/not-found.component';
-export * from './src/widgets/router/flash.message.component';
-export * from './src/widgets/router/flash.message.service';
+export * from './src/widgets/simple/flash.message.component';
+export * from './src/widgets/simple/flash.message.service';
+export * from './src/widgets/simple/create.entity.component';
 
 @NgModule({
   imports: [

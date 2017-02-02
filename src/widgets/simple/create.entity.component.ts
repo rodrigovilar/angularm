@@ -1,11 +1,10 @@
 import 'rxjs/add/operator/switchMap';
-import { Component, OnInit, HostBinding } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Component, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { AngularmService } from '../../angularm.service';
 import { FlashMessageService } from './flash.message.service';
-import { slideInDownAnimation } from './animations';
 import { EntityTypeComponent } from '../../meta/entitytype.component';
 import { TitleCase } from '../../pipes/titlecase.pipe';
 import { EntityType, PropertyType } from '../../entitytype';
@@ -15,7 +14,7 @@ import { EntityType, PropertyType } from '../../entitytype';
   <h1>New {{ entityType.singular | titleCase }}</h1>
   <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
     <div *ngFor="let propertyType of entityType.propertyTypes">
-      <label 
+      <label
         for="{{propertyType.entityType.singular}}_{{propertyType.name}}">{{propertyType.name | titleCase}}</label>
       <input
         type="text"
@@ -25,21 +24,16 @@ import { EntityType, PropertyType } from '../../entitytype';
       <br>
     </div>
     <input type="submit" value="Create {{ entityType.singular | titleCase }}">
-  </form> 
+  </form>
 
   <a routerLink="/{{entityType.plural}}">Back</a>
-</div>`,
-  animations: [ slideInDownAnimation ]
+</div>`
 })
 export class CreateEntityComponent extends EntityTypeComponent implements OnInit {
 
-  @HostBinding('@routeAnimation') routeAnimation = true;
-  @HostBinding('style.display')   display = 'block';
-  @HostBinding('style.position')  position = 'absolute';
   myForm: FormGroup;
 
   constructor(
-    private route: ActivatedRoute,
     private router: Router,
     private fb: FormBuilder,
     private flash: FlashMessageService,
@@ -48,25 +42,14 @@ export class CreateEntityComponent extends EntityTypeComponent implements OnInit
     super();
   }
 
-  configureForm(entityType: EntityType) {
-    this.entityType = entityType;
+  ngOnInit() {
     let fbConf: any = {};
 
-    entityType.properties.forEach( (propertyType: PropertyType) => {
+    this.entityType.properties.forEach( (propertyType: PropertyType) => {
       fbConf[propertyType.name] = ['']; // TO DO Add validators here according to metadata
     });
 
     this.myForm = this.fb.group(fbConf);
-  }
-
-  mapEntityTypeParam(params: Params): Promise<any> {
-    return this.angularm.findEntityType(params['entitytypename']);
-  }
-
-  ngOnInit() {
-    this.route.params
-      .switchMap((params: Params) => this.mapEntityTypeParam(params))
-      .subscribe((entityType: any) => this.configureForm(entityType));
   }
 
   onSubmit(form: any): void {

@@ -5,7 +5,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AngularmService } from '../../angularm.service';
 import { slideInDownAnimation } from './animations';
 import { EntityTypeComponent } from '../../meta/entitytype.component';
-import { FlashMessageService } from './flash.message.service';
+import { FlashMessageService } from '../simple/flash.message.service';
 import { Entity } from '../../entitytype';
 import { TitleCase } from '../../pipes/titlecase.pipe';
 

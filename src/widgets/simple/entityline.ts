@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import { AngularmService } from '../../angularm.service';
 import { EntityComponent } from '../../meta/entity.component';
-import { FlashMessageService } from '../router/flash.message.service';
+import { FlashMessageService } from './flash.message.service';
 import { TitleCase } from '../../pipes/titlecase.pipe';
 
 

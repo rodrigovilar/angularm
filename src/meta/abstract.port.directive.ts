@@ -48,7 +48,7 @@ export class AbstractPortDirective implements AfterViewInit, OnChanges, OnDestro
   protected createEntityTypeWidget(entityType: EntityType, port: string) {
       let widgetConnection = this.angularm.getEntityTypeWidget(entityType, port);
       let componentRef = this.createComponent(widgetConnection.widget);
-      componentRef.instance.entitytype = entityType;
+      componentRef.instance.entityType = entityType;
       componentRef.instance.configuration = (widgetConnection.configuration) ? widgetConnection.configuration : {};
   }
 

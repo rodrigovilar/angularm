@@ -4,7 +4,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { AngularmService } from '../../angularm.service';
-import { FlashMessageService } from './flash.message.service';
+import { FlashMessageService } from '../simple/flash.message.service';
 import { slideInDownAnimation } from './animations';
 import { Entity, EntityType } from '../../entitytype';
 import { EntityComponent } from '../../meta/entity.component';
@@ -15,7 +15,7 @@ import { TitleCase } from '../../pipes/titlecase.pipe';
   template: `<div *ngIf="entity">
   <h1>Editing {{ entity.entityType.singular | titleCase }}</h1>
   <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
-    <div *ngFor="let property of entity.mountProperties()">    
+    <div *ngFor="let property of entity.mountProperties()">
       <label
             for="{{property.propertyType.entityType.singular}}_{{property.propertyType.name}}"
         >{{property.propertyType.name | titleCase}}</label>
@@ -28,7 +28,7 @@ import { TitleCase } from '../../pipes/titlecase.pipe';
         <br>
       </div>
     <input type="submit" value="Update {{ entity.entityType.singular | titleCase }}">
-  </form> 
+  </form>
 
   <a href="#" (click)="show()">Show</a>
   <a href="#" (click)="back()">Back</a>

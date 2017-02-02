@@ -4,7 +4,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { AngularmService } from '../../angularm.service';
 import { slideInDownAnimation } from './animations';
-import { FlashMessageService } from './flash.message.service';
+import { FlashMessageService } from '../simple/flash.message.service';
 import { EntityType } from '../../entitytype';
 import { EntityComponent } from '../../meta/entity.component';
 
