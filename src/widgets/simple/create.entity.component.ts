@@ -13,19 +13,11 @@ import { EntityType, PropertyType } from '../../entitytype';
   template: `<div *ngIf="entityType && myForm">
   <h1>New {{ entityType.singular | titleCase }}</h1>
   <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
-    <div *ngFor="let propertyType of entityType.propertyTypes">
-      <label
-        for="{{propertyType.entityType.singular}}_{{propertyType.name}}">{{propertyType.name | titleCase}}</label>
-      <input
-        type="text"
-        id="{{propertyType.entityType.singular}}_{{propertyType.name}}"
-        placeholder="{{propertyType.name | titleCase}}"
-        [formControl]="myForm.controls[propertyType.name]">
-      <br>
-    </div>
+    <div *ngFor="let propertyType of entityType.propertyTypes"
+      [mgPropertyType]="'form_line'" [propertyType]="propertyType"
+      [mgForm]="myForm"></div>
     <input type="submit" value="Create {{ entityType.singular | titleCase }}">
   </form>
-
   <a routerLink="/{{entityType.plural}}">Back</a>
 </div>`
 })
