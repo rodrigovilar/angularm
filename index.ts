@@ -24,6 +24,9 @@ export * from './src/widgets/simple/create.entity.component';
 export * from './src/widgets/simple/formline';
 export * from './src/widgets/simple/edit.entity.form.component';
 export * from './src/widgets/simple/edit.formline';
+export * from './src/widgets/simple/entity.details.component';
+export * from './src/widgets/simple/showline';
+export * from './src/widgets/simple/listing.table.component';
 
 @NgModule({
   imports: [
