@@ -28,7 +28,7 @@ export class ForeachPropertyDirective extends AbstractPortDirective implements O
   public refreshContent() {
     super.refreshContent();
 
-    this.foreachProperty(this.entity, (property) => {
+    this.foreachProperty(this.entity, (property: Property) => {
       this.createPropertyWidget(property, this.port, this.mgForm);
     });
   }

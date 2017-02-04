@@ -9,8 +9,13 @@ import { AngularmService } from "./src/angularm.service";
 export * from './src/pipes/pipes.module';
 export * from './src/meta/meta.module';
 export * from './src/meta/entitytypes.component';
+export * from './src/meta/entitytype.component';
+export * from './src/meta/propertytype.component';
+export * from './src/meta/entity.component';
+export * from './src/meta/property.component';
 export * from './src/widgets/simple/entityline';
 export * from './src/angularm.service';
+export * from './src/entitytype';
 
 export * from './src/widgets/router/list.entities.component';
 export * from './src/widgets/router/show.entity.component';
