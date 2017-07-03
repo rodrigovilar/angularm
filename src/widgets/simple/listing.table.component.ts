@@ -11,6 +11,7 @@ import { TitleCase } from '../../pipes/titlecase.pipe';
 @Component({
   selector: 'div [mgListingTable]',
   template: `<div *ngIf="entityType">
+    <style>{{configuration('generalStyle')}}</style>
     <h1>Listing {{ entityType.plural | titleCase }}</h1>
     <table {{configuration('tableStyle', 'style')}} {{configuration('tableClass', 'class')}}>
       <thead>
