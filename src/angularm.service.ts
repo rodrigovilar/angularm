@@ -1,7 +1,7 @@
 import { Injectable, Type } from '@angular/core';
 
 import { DomainLayer } from './domain/domain.layer';
-import { RuleService, WidgetConnection } from './meta/rule.service';
+import {RuleService, WidgetConnection, Rule} from './meta/rule.service';
 import { EntityType, PropertyType, Property } from './entitytype';
 import { AbstractDAO } from './domain/abstract.dao';
 import { InMemoryDAO } from './domain/inmemory.dao';
@@ -26,6 +26,10 @@ export class AngularmService {
 
     listEntityTypes(): EntityType[] {
         return this.domain.listEntityTypes();
+    }
+    
+    cleanRules(): void {
+        this.rule = new RuleService();
     }
 
     addService(service: AbstractDAO) {
