@@ -13,7 +13,7 @@ import { TitleCase } from '../../pipes/titlecase.pipe';
   template: `<div *ngIf="entityType">
     <style>{{configuration('generalStyle')}}</style>
     <h1>Listing {{ entityType.plural | titleCase }}</h1>
-    <table {{configuration('tableStyle', 'style')}} {{configuration('tableClass', 'class')}}>
+    <table>
       <thead>
         <tr>
           <th *ngFor="let propertyType of entityType.propertyTypes">{{propertyType.name | titleCase}}</th>
@@ -25,8 +25,8 @@ import { TitleCase } from '../../pipes/titlecase.pipe';
         </div>
       </tbody>
     </table>
-    <a href="#" (click)="create()" {{configuration('createButtonStyle', 'style')}}>New {{entityType.singular | titleCase}}</a>
-    <a href="#" (click)="back()" {{configuration('backButtonStyle', 'style')}}>Back</a>
+    <a href="#" (click)="create()">New {{entityType.singular | titleCase}}</a>
+    <a href="#" (click)="back()">Back</a>
   </div>`
 })
 export class ListingTableComponent extends EntityTypeComponent implements OnInit {

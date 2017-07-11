@@ -723,6 +723,10 @@ tough-cookie@~2.3.0:
   dependencies:
     punycode "^1.4.1"
 
+tsc@^1.20150623.0:
+  version "1.20150623.0+f2044a901165a2a97813772353b57dd9ed4796ca"
+  resolved "https://registry.yarnpkg.com/tsc/-/tsc-1.20150623.0.tgz#4ebc3c774e169148cbc768a7342533f082c7a6e5"
+
 tslint@^3.15.1:
   version "3.15.1"
   resolved "https://registry.yarnpkg.com/tslint/-/tslint-3.15.1.tgz#da165ca93d8fdc2c086b51165ee1bacb48c98ea5"
