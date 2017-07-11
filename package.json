@@ -1,6 +1,6 @@
 {
   "name": "angularm",
-  "version": "0.4.11",
+  "version": "0.4.21",
   "scripts": {
     "lint": "tslint src/**/*.ts",
     "test": "tsc && karma start",
@@ -24,7 +24,9 @@
     "url": "https://github.com/rodrigovilar/angularm/issues"
   },
   "main": "./dist/index.js",
-  "dependencies": {},
+  "dependencies": {
+    "tsc": "^1.20150623.0"
+  },
   "devDependencies": {
     "@angular/common": "^2.0.0",
     "@angular/core": "^2.0.0",
