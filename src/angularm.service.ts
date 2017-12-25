@@ -1,4 +1,6 @@
 import { Injectable, Type } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
+import { Observable } from 'rxjs/Observable';
 
 import { DomainLayer } from './domain/domain.layer';
 import {RuleService, WidgetConnection} from './meta/rule.service';
@@ -6,6 +8,9 @@ import { EntityType, PropertyType, Property } from './entitytype';
 import { AbstractDAO } from './domain/abstract.dao';
 import { InMemoryDAO } from './domain/inmemory.dao';
 
+export class AngularmEvent {
+    constructor(public event: string, public context: any, public data: any) {}
+}
 
 @Injectable()
 export class AngularmService {
@@ -13,11 +18,18 @@ export class AngularmService {
     private domain: DomainLayer;
     private rule: RuleService;
 
+    private eventSource = new Subject<AngularmEvent>();
+    public eventFired$ = this.eventSource.asObservable();
+  
     constructor() {
         this.domain = new DomainLayer();
         this.rule = new RuleService();
     }
 
+    fireEvent(eventName: string, context: any, data: any) {
+        this.eventSource.next( new AngularmEvent(eventName, context, data) );
+    }
+  
     setupDomain(... daos: AbstractDAO[]) {
         daos.forEach((dao: AbstractDAO) => {
             this.addService(dao);
