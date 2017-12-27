@@ -58,6 +58,7 @@ export class AbstractPortDirective implements AfterViewInit, OnChanges, OnDestro
       componentRef.instance.propertyType = propertyType;
       componentRef.instance.configuration = (widgetConnection.configuration) ? widgetConnection.configuration : {};
       if (mgForm) {
+        componentRef.instance.mgForm = mgForm;
         componentRef.instance.mgFormControl = mgForm.controls[propertyType.name];
       }
   }
@@ -75,6 +76,7 @@ export class AbstractPortDirective implements AfterViewInit, OnChanges, OnDestro
       componentRef.instance.property = property;
       componentRef.instance.configuration = (widgetConnection.configuration) ? widgetConnection.configuration : {};
       if (mgForm) {
+        componentRef.instance.mgForm = mgForm;
         componentRef.instance.mgFormControl = mgForm.controls[property.propertyType.name];
       }
   }

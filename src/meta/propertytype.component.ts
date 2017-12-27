@@ -1,4 +1,4 @@
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 import { PropertyType } from '../entitytype';
 import { AbstractComponent } from "./abstract.component";
@@ -8,6 +8,7 @@ export abstract class PropertyTypeComponent extends AbstractComponent {
 
     public propertyType: PropertyType;
     public mgFormControl: FormControl;
+    public mgForm: FormGroup;
 
     constructor(public angularm: AngularmService) {
         super();
