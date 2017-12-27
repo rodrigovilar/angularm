@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { PropertyComponent } from '../../meta/property.component';
+import { AngularmService } from '../../angularm.service';
 
 @Component({
     selector: 'div [mgEditFormLine]',
@@ -16,4 +17,9 @@ import { PropertyComponent } from '../../meta/property.component';
             [(ngModel)]="property.value">
         <br>`,
 })
-export class EditFormLineComponent extends PropertyComponent { }
+export class EditFormLineComponent extends PropertyComponent {
+    constructor(angularm: AngularmService) {
+        super(angularm);
+    }
+    
+ }

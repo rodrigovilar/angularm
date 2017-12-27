@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { PropertyTypeComponent } from '../../meta/propertytype.component';
+import { AngularmService } from '../../angularm.service';
 
 @Component({
     selector: 'div [mgFormLine]',
@@ -14,4 +15,9 @@ import { PropertyTypeComponent } from '../../meta/propertytype.component';
           [formControl]="mgFormControl">
         <br>`,
 })
-export class FormLineComponent extends PropertyTypeComponent { }
+export class FormLineComponent extends PropertyTypeComponent { 
+    constructor(angularm: AngularmService) {
+        super(angularm);
+    }
+    
+}

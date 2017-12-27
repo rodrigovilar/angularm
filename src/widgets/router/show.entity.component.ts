@@ -23,9 +23,9 @@ export class ShowEntityComponent extends EntityComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private angularm: AngularmService
+    angularm: AngularmService
   ) {
-    super();
+    super(angularm);
   }
 
   mapEntityParam(params: Params): Promise<any> {

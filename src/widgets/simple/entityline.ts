@@ -18,8 +18,8 @@ import { TitleCase } from '../../pipes/titlecase.pipe';
 export class EntityLineComponent extends EntityComponent {
 
     constructor(private router: Router, private flash: FlashMessageService,
-            private angularm: AngularmService) {
-        super();
+            angularm: AngularmService) {
+        super(angularm);
     }
 
     show() {

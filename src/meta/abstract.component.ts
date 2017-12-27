@@ -15,4 +15,6 @@ export abstract class AbstractComponent {
 
         return (value) ? value : "";
     }
+
+    public abstract fireEvent(eventName: string, data: any): void;
 };

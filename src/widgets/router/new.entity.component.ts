@@ -20,9 +20,9 @@ export class NewEntityComponent extends EntityTypeComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private angularm: AngularmService
+    angularm: AngularmService
   ) {
-    super();
+    super(angularm);
   }
 
   ngOnInit() {

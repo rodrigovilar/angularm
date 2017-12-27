@@ -33,9 +33,9 @@ export class EditEntityFormComponent extends EntityComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private flash: FlashMessageService,
-    private angularm: AngularmService
+    angularm: AngularmService
   ) {
-    super();
+    super(angularm);
   }
 
   ngOnInit() {

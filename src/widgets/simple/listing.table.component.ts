@@ -34,9 +34,9 @@ export class ListingTableComponent extends EntityTypeComponent implements OnInit
   constructor(
     private router: Router,
     private flash: FlashMessageService,
-    private angularm: AngularmService
+    angularm: AngularmService
   ) {
-    super();
+    super(angularm);
   }
 
   ngOnInit() {

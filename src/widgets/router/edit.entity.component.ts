@@ -21,10 +21,10 @@ export class EditEntityComponent extends EntityComponent implements OnInit {
   @HostBinding('style.position') position = 'absolute';
 
   constructor(
-    private route: ActivatedRoute,
-    private angularm: AngularmService
+    protected route: ActivatedRoute,
+    angularm: AngularmService
   ) {
-    super();
+    super(angularm);
   }
 
   ngOnInit() {

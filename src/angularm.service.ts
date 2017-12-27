@@ -9,7 +9,7 @@ import { AbstractDAO } from './domain/abstract.dao';
 import { InMemoryDAO } from './domain/inmemory.dao';
 
 export class AngularmEvent {
-    constructor(public event: string, public context: any, public data: any) {}
+    constructor(public name: string, public context: any, public data: any) {}
 }
 
 @Injectable()
