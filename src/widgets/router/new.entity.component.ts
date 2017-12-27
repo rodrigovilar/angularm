@@ -4,15 +4,16 @@ import { ActivatedRoute, Params } from '@angular/router';
 
 import { AngularmService } from '../../angularm.service';
 import { slideInDownAnimation } from './animations';
-import { EntityTypeComponent } from '../../meta/entitytype.component';
+import { EntityComponent } from '../../meta/entity.component';
+import { Entity } from '../../entitytype';
 
 @Component({
-  template: `<div *ngIf="entityType">
-  <div [mgEntityType]="'create_form'" [entityType]="entityType"></div>
+  template: `<div *ngIf="entity">
+  <div [mgEntity]="'create_form'" [entity]="entity"></div>
   </div>`,
   animations: [ slideInDownAnimation ]
 })
-export class NewEntityComponent extends EntityTypeComponent implements OnInit {
+export class NewEntityComponent extends EntityComponent implements OnInit {
 
   @HostBinding('@routeAnimation') routeAnimation = true;
   @HostBinding('style.display')   display = 'block';
@@ -36,7 +37,7 @@ export class NewEntityComponent extends EntityTypeComponent implements OnInit {
   }
 
   configure(entityType: any) {
-    this.entityType = entityType;
+    this.entity = new Entity(entityType, {});
   }
 
 }
