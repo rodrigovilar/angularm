@@ -12,6 +12,10 @@ export class AngularmEvent {
     constructor(public name: string, public context: any, public data: any) {}
 }
 
+export interface EventListener {
+    (event: AngularmEvent): void;
+}
+
 @Injectable()
 export class AngularmService {
 
@@ -19,12 +23,33 @@ export class AngularmService {
     private rule: RuleService;
 
     private eventSource = new Subject<AngularmEvent>();
-    public eventFired$ = this.eventSource.asObservable();
+    private eventFired$ = this.eventSource.asObservable();
   
     constructor() {
         this.domain = new DomainLayer();
         this.rule = new RuleService();
     }
+
+    subscribeEvent(eventName: string, eventListener: EventListener){
+        this.eventFired$.subscribe( (event: AngularmEvent) => {
+            if (event.name === eventName) {
+                eventListener(event);
+            }
+        });
+    }
+
+    subscribeEventForEntity(eventName: string, entityTypeName: string, eventListener: EventListener){
+        this.subscribeEvent(eventName, (event: AngularmEvent) => {
+            const eventEntityTypeNameSingular = 
+                (event.context.entityType) ? event.context.entityType.singular : event.context.name;
+            const eventEntityTypeNamePlural = 
+                (event.context.entityType) ? event.context.entityType.plural : event.context.name;
+            if (eventEntityTypeNameSingular === entityTypeName || eventEntityTypeNamePlural === entityTypeName) {
+                eventListener(event);
+            }
+        });
+    }
+
 
     fireEvent(eventName: string, context: any, data: any) {
         this.eventSource.next( new AngularmEvent(eventName, context, data) );
